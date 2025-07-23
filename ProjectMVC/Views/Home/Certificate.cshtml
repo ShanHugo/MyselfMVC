@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "證照";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background: #111418; /* 比卡片深一點的淺黑灰，參考 Learn 風格 */
+        color: #e0e0e0;
+        font-family: 'Microsoft JhengHei', 'Segoe UI', Arial, sans-serif;
+        line-height: 1.8;
+    }
+
+    .gradient-text-purple-yellow {
+        background: linear-gradient(90deg, #7e5bef, #ffe066);
+        text-align: center;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+
+    h3 {
+        color: #ffb6ff;
+        font-weight: 600;
+        border-left: 4px solid #ff3cac;
+        padding-left: 0.7rem;
+        margin-bottom: 1.2rem;
+    }
+
+    strong {
+        color: #ffe066;
+    }
+
+    .bio-section {
+        background: #1e1e1e; /* 方塊灰黑 */
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2.5rem;
+    }
+
+    p {
+        font-size: 1.08rem;
+        margin-bottom: 1.2rem;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff3cac, #b388ff);
+        border-radius: 4px;
+    }
+</style>
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1 class="gradient-text-purple-yellow">證照</h1>
+            <img src="~/images/projects/DP-900.jpg" class="img-fluid mb-3" alt="DP-900" />
+            <img src="~/images/projects/SC-900.jpg" class="img-fluid mb-3" alt="SC-900" />
+        </div>
+    </div>
+</div>
+

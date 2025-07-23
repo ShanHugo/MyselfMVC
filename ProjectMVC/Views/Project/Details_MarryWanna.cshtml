@@ -1,0 +1,155 @@
+﻿@model ProjectMVC.Models.Projects
+
+@{
+    ViewData["Title"] = "MarryWanna內容";
+}
+
+<style>
+    body {
+        background: #111418; /* 統一與自傳、作品牆一致的深灰黑背景 */
+    }
+
+    .project-detail-card {
+        background: rgba(34, 18, 48, 0.96); /* 深紫黑半透明 */
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 32px #0007;
+        padding: 2.5rem 2rem;
+        color: #fff;
+        font-family: 'Microsoft JhengHei', 'Segoe UI', Arial, sans-serif;
+        margin-bottom: 2rem;
+    }
+
+        .project-detail-card h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff3cac; /* 粉色主標題 */
+            text-shadow: 1px 2px 12px #18122B, 0 0 8px #b388ff;
+            letter-spacing: 2px;
+            font-family: 'Segoe UI', 'LXGW WenKai Mono TC', 'Microsoft JhengHei', Arial, sans-serif;
+        }
+
+        .project-detail-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffe066; /* 黃色副標題 */
+            text-shadow: 0 1px 4px #0006;
+        }
+
+        .project-detail-card h3, .project-detail-card h5 {
+            color: #39ff14; /* 螢光綠 */
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .project-detail-card ul {
+            margin-left: 1.2rem;
+        }
+
+        .project-detail-card img {
+            border-radius: 0.7rem;
+            box-shadow: 0 2px 12px #0004;
+            margin-bottom: 1.2rem;
+            max-width: 100%;
+            background: #222;
+        }
+
+        .project-detail-card a, .project-detail-card a:visited {
+            color: #ffe066;
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+            .project-detail-card a:hover {
+                color: #ff3cac;
+                text-decoration: none;
+            }
+
+        .project-detail-card p, .project-detail-card li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #f8f9fa;
+        }
+
+        .project-detail-card strong {
+            color: #ff3cac;
+        }
+    /* 螢光綠重點字 */
+    .punk-green {
+        color: #39ff14;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="project-detail-card">
+                <h1>MarryWanna</h1>
+                <h2>MaryWanna Kinect 互動專案</h2>
+                <p>
+                    <strong>作者：</strong>
+                    陳淳儀 : 企劃/視覺設計師<br />
+                    黃俊賢 : 企劃/視覺設計師<br />
+                    趙雅慧 : 互動設計師<br />
+                    楊善宇 : 軟體工程師
+                </p>
+
+                <h3 class="mt-4">專案簡介（Project Overview）</h3>
+                <h5>目的（Project Goal）</h5>
+                <p>
+                    本專案旨在探索植物（大麻）與性結合的可能性。我們希望透過沉浸式互動體驗，
+                    模擬大麻感官擴大的效果與性結合，為人們帶來全新的感官體驗。
+                    此專案意圖提倡追求自我滿足、自身快樂與自信地探索和實踐性。
+                </p>
+
+                <h5>使用技術（Tech Stack）</h5>
+                <ul>
+                    <li><strong class="punk-green">Unity + Kinect V2：</strong>負責偵測人體骨架，並透過深度攝影達到高準確度偵測。</li>
+                    <li><strong class="punk-green">TouchDesigner：</strong>接收 Unity 傳輸的 OSC 訊號，生成即時互動視覺效果。</li>
+                    <li><strong class="punk-green">Arduino：</strong>搭配打火機按鈕控制觸發。</li>
+                </ul>
+
+                <h5>使用流程（How It Works）</h5>
+                <p>
+                    觀眾在展覽空間看完前導影片後，依提示按下按鈕（打火機）觸發 Kinect，
+                    系統開始捕捉人體外框。當觀眾觸摸特定部位時，TouchDesigner 即時回饋視覺效果。
+                </p>
+
+                <h3 class="mt-4">系統架構與流程圖（System Flow）</h3>
+                <p>
+                    Kinect 偵測體驗者的身型外框 → Unity 接收數值並傳給 TouchDesigner →
+                    TouchDesigner 即時輸出美術視覺，投影至大螢幕。
+                </p>
+                <img src="~/images/projects/marywanna-flow.png" class="img-fluid my-3" alt="系統流程圖">
+
+                <h3 class="mt-4">開發動機與技術挑戰（Motivation & Challenges）</h3>
+                <h5>開發動機</h5>
+                <p>
+                    大麻的感官擴大效應引發我們對於性行為感官增強的思考，是否可以透過互動科技模擬這種感官體驗。
+                </p>
+                <h5>技術挑戰與解法</h5>
+                <ul>
+                    <li>Kinect 偵測受多人干擾 → <strong>限制進場一人、調整距離與角度、設置暗室</strong></li>
+                    <li>Arduino 與 Unity 串接不穩 → <strong>使用 Serial 傳輸錯誤重送機制</strong></li>
+                    <li>OSC 傳輸延遲 → <strong>加入訊號緩衝與監控回傳機制</strong></li>
+                </ul>
+
+                <h3 class="mt-4">成果展示（Demo）</h3>
+                <p>
+                    <a href="https://www.youtube.com/watch?v=5fDzMCg1owI&t=7s" target="_blank">
+                        🎥 點此觀看 YouTube Demo
+                    </a>
+                </p>
+                <img src="~/images/projects/marywanna-demo1.jpg" class="img-fluid mb-3" alt="展覽現場照片">
+                <img src="~/images/projects/marywanna-demo2.jpg" class="img-fluid mb-3" alt="互動畫面">
+
+                <h3 class="mt-4">未來可擴充方向（Future Improvement）</h3>
+                <p>
+                    可擴充更多感官互動裝置（如觸覺回饋手套）、優化 Kinect 偵測演算法並應用於更多沉浸式互動體驗。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
