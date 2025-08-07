@@ -42,5 +42,5 @@
 打開 `ProjectMVC/appsettings.json`，確認以下連線字串：
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=ForProject;Trusted_Connection=True;"
+  "DbConnectonString": "Server=.\\PROJECTSQL;Database=ForProject;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
